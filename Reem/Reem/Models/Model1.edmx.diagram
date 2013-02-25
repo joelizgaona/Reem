@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98811210682a4f2bad5c5874d52c8e0d" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="REEMBOLSOModel.Acreedor" Width="1.5" PointX="1.375" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Articulo" Width="1.5" PointX="3.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Modulo" Width="1.5" PointX="2.625" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Paquete" Width="1.5" PointX="2.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Proveedor" Width="1.5" PointX="7" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Reembolso" Width="1.5" PointX="5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Rol" Width="1.5" PointX="0.625" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Segmento" Width="1.5" PointX="7.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.StatusPaq" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Sucursal" Width="1.5" PointX="7.375" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Usuario" Width="1.5" PointX="2.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="REEMBOLSOModel.Usuario_Modulo" Width="1.5" PointX="5.125" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Paquete_Acreedor" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Reembolso_Articulo" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Usuario_Modulo_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Paquete_StatusPaq" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Paquete_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Reembolso_Paquete" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Reembolso_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Reembolso_Segmento" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Reembolso_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Reembolso_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Usuario_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="REEMBOLSOModel.FK_Usuario_Modulo_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

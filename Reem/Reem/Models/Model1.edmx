@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="REEMBOLSOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="REEMBOLSOModelStoreContainer">
+          <EntitySet Name="Acreedor" EntityType="REEMBOLSOModel.Store.Acreedor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Articulo" EntityType="REEMBOLSOModel.Store.Articulo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modulo" EntityType="REEMBOLSOModel.Store.Modulo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Paquete" EntityType="REEMBOLSOModel.Store.Paquete" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Proveedor" EntityType="REEMBOLSOModel.Store.Proveedor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Reembolso" EntityType="REEMBOLSOModel.Store.Reembolso" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rol" EntityType="REEMBOLSOModel.Store.Rol" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Segmento" EntityType="REEMBOLSOModel.Store.Segmento" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StatusPaq" EntityType="REEMBOLSOModel.Store.StatusPaq" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sucursal" EntityType="REEMBOLSOModel.Store.Sucursal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="REEMBOLSOModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario_Modulo" EntityType="REEMBOLSOModel.Store.Usuario_Modulo" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Paquete_Acreedor" Association="REEMBOLSOModel.Store.FK_Paquete_Acreedor">
+            <End Role="Acreedor" EntitySet="Acreedor" />
+            <End Role="Paquete" EntitySet="Paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paquete_StatusPaq" Association="REEMBOLSOModel.Store.FK_Paquete_StatusPaq">
+            <End Role="StatusPaq" EntitySet="StatusPaq" />
+            <End Role="Paquete" EntitySet="Paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paquete_Usuario" Association="REEMBOLSOModel.Store.FK_Paquete_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Paquete" EntitySet="Paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Articulo" Association="REEMBOLSOModel.Store.FK_Reembolso_Articulo">
+            <End Role="Articulo" EntitySet="Articulo" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Paquete" Association="REEMBOLSOModel.Store.FK_Reembolso_Paquete">
+            <End Role="Paquete" EntitySet="Paquete" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Proveedor" Association="REEMBOLSOModel.Store.FK_Reembolso_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Segmento" Association="REEMBOLSOModel.Store.FK_Reembolso_Segmento">
+            <End Role="Segmento" EntitySet="Segmento" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Sucursal" Association="REEMBOLSOModel.Store.FK_Reembolso_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Usuario" Association="REEMBOLSOModel.Store.FK_Reembolso_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Modulo_Modulo" Association="REEMBOLSOModel.Store.FK_Usuario_Modulo_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Usuario_Modulo" EntitySet="Usuario_Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Modulo_Usuario" Association="REEMBOLSOModel.Store.FK_Usuario_Modulo_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Modulo" EntitySet="Usuario_Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="REEMBOLSOModel.Store.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Acreedor">
+          <Key>
+            <PropertyRef Name="ClaveAcre" />
+          </Key>
+          <Property Name="ClaveAcre" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DescripcionAcre" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Articulo">
+          <Key>
+            <PropertyRef Name="ClaveArt" />
+          </Key>
+          <Property Name="ClaveArt" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ClaveMod" />
+          </Key>
+          <Property Name="ClaveMod" Type="int" Nullable="false" />
+          <Property Name="DrecipcionMod" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Paquete">
+          <Key>
+            <PropertyRef Name="FolioPaq" />
+          </Key>
+          <Property Name="FolioPaq" Type="int" Nullable="false" />
+          <Property Name="ClaveAcre" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="ImportePaq" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="CreacionPaq" Type="date" Nullable="false" />
+          <Property Name="ID_StatusPaq" Type="int" Nullable="false" />
+          <Property Name="CierrePaq" Type="date" Nullable="false" />
+          <Property Name="ID_Usuario" Type="int" Nullable="false" />
+          <Property Name="PresupuestoPaq" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="ClaveProv" />
+          </Key>
+          <Property Name="ClaveProv" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DescripcionProv" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="RFC_Prov" Type="varchar" Nullable="false" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Reembolso">
+          <Key>
+            <PropertyRef Name="ID_Reem" />
+          </Key>
+          <Property Name="ID_Reem" Type="int" Nullable="false" />
+          <Property Name="FolioPaq" Type="int" Nullable="false" />
+          <Property Name="ClaveArt" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="ClaveProv" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DescripcionReem" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ImporteRem" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="IVA_Reem" Type="int" Nullable="false" />
+          <Property Name="TotalReem" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="FechaReem" Type="date" Nullable="false" />
+          <Property Name="ClaveSuc" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="ClaveSeg" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="CreacionReem" Type="date" Nullable="false" />
+          <Property Name="ID_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Segmento">
+          <Key>
+            <PropertyRef Name="ClaveSeg" />
+          </Key>
+          <Property Name="ClaveSeg" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DescripcionSeg" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="StatusPaq">
+          <Key>
+            <PropertyRef Name="ID_StatusPaq" />
+          </Key>
+          <Property Name="ID_StatusPaq" Type="int" Nullable="false" />
+          <Property Name="DescripcionSta" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="ClaveSuc" />
+          </Key>
+          <Property Name="ClaveSuc" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="DescripcionSuc" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Rol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario_Modulo">
+          <Key>
+            <PropertyRef Name="ClaveUM" />
+          </Key>
+          <Property Name="ClaveUM" Type="int" Nullable="false" />
+          <Property Name="ID_Usuario" Type="int" Nullable="false" />
+          <Property Name="ClaveMod" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Paquete_Acreedor">
+          <End Role="Acreedor" Type="REEMBOLSOModel.Store.Acreedor" Multiplicity="1" />
+          <End Role="Paquete" Type="REEMBOLSOModel.Store.Paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acreedor">
+              <PropertyRef Name="ClaveAcre" />
+            </Principal>
+            <Dependent Role="Paquete">
+              <PropertyRef Name="ClaveAcre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paquete_StatusPaq">
+          <End Role="StatusPaq" Type="REEMBOLSOModel.Store.StatusPaq" Multiplicity="1" />
+          <End Role="Paquete" Type="REEMBOLSOModel.Store.Paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPaq">
+              <PropertyRef Name="ID_StatusPaq" />
+            </Principal>
+            <Dependent Role="Paquete">
+              <PropertyRef Name="ID_StatusPaq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paquete_Usuario">
+          <End Role="Usuario" Type="REEMBOLSOModel.Store.Usuario" Multiplicity="1" />
+          <End Role="Paquete" Type="REEMBOLSOModel.Store.Paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Paquete">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Articulo">
+          <End Role="Articulo" Type="REEMBOLSOModel.Store.Articulo" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Store.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articulo">
+              <PropertyRef Name="ClaveArt" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveArt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Paquete">
+          <End Role="Paquete" Type="REEMBOLSOModel.Store.Paquete" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Store.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paquete">
+              <PropertyRef Name="FolioPaq" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="FolioPaq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Proveedor">
+          <End Role="Proveedor" Type="REEMBOLSOModel.Store.Proveedor" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Store.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="ClaveProv" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveProv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Segmento">
+          <End Role="Segmento" Type="REEMBOLSOModel.Store.Segmento" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Store.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Segmento">
+              <PropertyRef Name="ClaveSeg" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveSeg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Sucursal">
+          <End Role="Sucursal" Type="REEMBOLSOModel.Store.Sucursal" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Store.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ClaveSuc" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveSuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Usuario">
+          <End Role="Usuario" Type="REEMBOLSOModel.Store.Usuario" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Store.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Modulo_Modulo">
+          <End Role="Modulo" Type="REEMBOLSOModel.Store.Modulo" Multiplicity="1" />
+          <End Role="Usuario_Modulo" Type="REEMBOLSOModel.Store.Usuario_Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="ClaveMod" />
+            </Principal>
+            <Dependent Role="Usuario_Modulo">
+              <PropertyRef Name="ClaveMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Modulo_Usuario">
+          <End Role="Usuario" Type="REEMBOLSOModel.Store.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Modulo" Type="REEMBOLSOModel.Store.Usuario_Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario_Modulo">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="REEMBOLSOModel.Store.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="REEMBOLSOModel.Store.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="REEMBOLSOModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="REEMBOLSOEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Acreedor" EntityType="REEMBOLSOModel.Acreedor" />
+          <EntitySet Name="Articulo" EntityType="REEMBOLSOModel.Articulo" />
+          <EntitySet Name="Modulo" EntityType="REEMBOLSOModel.Modulo" />
+          <EntitySet Name="Paquete" EntityType="REEMBOLSOModel.Paquete" />
+          <EntitySet Name="Proveedor" EntityType="REEMBOLSOModel.Proveedor" />
+          <EntitySet Name="Reembolso" EntityType="REEMBOLSOModel.Reembolso" />
+          <EntitySet Name="Rol" EntityType="REEMBOLSOModel.Rol" />
+          <EntitySet Name="Segmento" EntityType="REEMBOLSOModel.Segmento" />
+          <EntitySet Name="StatusPaq" EntityType="REEMBOLSOModel.StatusPaq" />
+          <EntitySet Name="Sucursal" EntityType="REEMBOLSOModel.Sucursal" />
+          <EntitySet Name="Usuario" EntityType="REEMBOLSOModel.Usuario" />
+          <EntitySet Name="Usuario_Modulo" EntityType="REEMBOLSOModel.Usuario_Modulo" />
+          <AssociationSet Name="FK_Paquete_Acreedor" Association="REEMBOLSOModel.FK_Paquete_Acreedor">
+            <End Role="Acreedor" EntitySet="Acreedor" />
+            <End Role="Paquete" EntitySet="Paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Articulo" Association="REEMBOLSOModel.FK_Reembolso_Articulo">
+            <End Role="Articulo" EntitySet="Articulo" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Modulo_Modulo" Association="REEMBOLSOModel.FK_Usuario_Modulo_Modulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Usuario_Modulo" EntitySet="Usuario_Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paquete_StatusPaq" Association="REEMBOLSOModel.FK_Paquete_StatusPaq">
+            <End Role="StatusPaq" EntitySet="StatusPaq" />
+            <End Role="Paquete" EntitySet="Paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paquete_Usuario" Association="REEMBOLSOModel.FK_Paquete_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Paquete" EntitySet="Paquete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Paquete" Association="REEMBOLSOModel.FK_Reembolso_Paquete">
+            <End Role="Paquete" EntitySet="Paquete" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Proveedor" Association="REEMBOLSOModel.FK_Reembolso_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Segmento" Association="REEMBOLSOModel.FK_Reembolso_Segmento">
+            <End Role="Segmento" EntitySet="Segmento" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Sucursal" Association="REEMBOLSOModel.FK_Reembolso_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reembolso_Usuario" Association="REEMBOLSOModel.FK_Reembolso_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Reembolso" EntitySet="Reembolso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="REEMBOLSOModel.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Modulo_Usuario" Association="REEMBOLSOModel.FK_Usuario_Modulo_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Modulo" EntitySet="Usuario_Modulo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Acreedor">
+          <Key>
+            <PropertyRef Name="ClaveAcre" />
+          </Key>
+          <Property Name="ClaveAcre" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DescripcionAcre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Paquete" Relationship="REEMBOLSOModel.FK_Paquete_Acreedor" FromRole="Acreedor" ToRole="Paquete" />
+        </EntityType>
+        <EntityType Name="Articulo">
+          <Key>
+            <PropertyRef Name="ClaveArt" />
+          </Key>
+          <Property Name="ClaveArt" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Reembolso" Relationship="REEMBOLSOModel.FK_Reembolso_Articulo" FromRole="Articulo" ToRole="Reembolso" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="ClaveMod" />
+          </Key>
+          <Property Name="ClaveMod" Type="Int32" Nullable="false" />
+          <Property Name="DrecipcionMod" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Usuario_Modulo" Relationship="REEMBOLSOModel.FK_Usuario_Modulo_Modulo" FromRole="Modulo" ToRole="Usuario_Modulo" />
+        </EntityType>
+        <EntityType Name="Paquete">
+          <Key>
+            <PropertyRef Name="FolioPaq" />
+          </Key>
+          <Property Name="FolioPaq" Type="Int32" Nullable="false" />
+          <Property Name="ClaveAcre" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ImportePaq" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="CreacionPaq" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_StatusPaq" Type="Int32" Nullable="false" />
+          <Property Name="CierrePaq" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="PresupuestoPaq" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Acreedor" Relationship="REEMBOLSOModel.FK_Paquete_Acreedor" FromRole="Paquete" ToRole="Acreedor" />
+          <NavigationProperty Name="StatusPaq" Relationship="REEMBOLSOModel.FK_Paquete_StatusPaq" FromRole="Paquete" ToRole="StatusPaq" />
+          <NavigationProperty Name="Usuario" Relationship="REEMBOLSOModel.FK_Paquete_Usuario" FromRole="Paquete" ToRole="Usuario" />
+          <NavigationProperty Name="Reembolso" Relationship="REEMBOLSOModel.FK_Reembolso_Paquete" FromRole="Paquete" ToRole="Reembolso" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="ClaveProv" />
+          </Key>
+          <Property Name="ClaveProv" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DescripcionProv" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="RFC_Prov" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Reembolso" Relationship="REEMBOLSOModel.FK_Reembolso_Proveedor" FromRole="Proveedor" ToRole="Reembolso" />
+        </EntityType>
+        <EntityType Name="Reembolso">
+          <Key>
+            <PropertyRef Name="ID_Reem" />
+          </Key>
+          <Property Name="ID_Reem" Type="Int32" Nullable="false" />
+          <Property Name="FolioPaq" Type="Int32" Nullable="false" />
+          <Property Name="ClaveArt" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ClaveProv" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DescripcionReem" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ImporteRem" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="IVA_Reem" Type="Int32" Nullable="false" />
+          <Property Name="TotalReem" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="FechaReem" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ClaveSuc" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ClaveSeg" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="CreacionReem" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Articulo" Relationship="REEMBOLSOModel.FK_Reembolso_Articulo" FromRole="Reembolso" ToRole="Articulo" />
+          <NavigationProperty Name="Paquete" Relationship="REEMBOLSOModel.FK_Reembolso_Paquete" FromRole="Reembolso" ToRole="Paquete" />
+          <NavigationProperty Name="Proveedor" Relationship="REEMBOLSOModel.FK_Reembolso_Proveedor" FromRole="Reembolso" ToRole="Proveedor" />
+          <NavigationProperty Name="Segmento" Relationship="REEMBOLSOModel.FK_Reembolso_Segmento" FromRole="Reembolso" ToRole="Segmento" />
+          <NavigationProperty Name="Sucursal" Relationship="REEMBOLSOModel.FK_Reembolso_Sucursal" FromRole="Reembolso" ToRole="Sucursal" />
+          <NavigationProperty Name="Usuario" Relationship="REEMBOLSOModel.FK_Reembolso_Usuario" FromRole="Reembolso" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Usuario" Relationship="REEMBOLSOModel.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Segmento">
+          <Key>
+            <PropertyRef Name="ClaveSeg" />
+          </Key>
+          <Property Name="ClaveSeg" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DescripcionSeg" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Reembolso" Relationship="REEMBOLSOModel.FK_Reembolso_Segmento" FromRole="Segmento" ToRole="Reembolso" />
+        </EntityType>
+        <EntityType Name="StatusPaq">
+          <Key>
+            <PropertyRef Name="ID_StatusPaq" />
+          </Key>
+          <Property Name="ID_StatusPaq" Type="Int32" Nullable="false" />
+          <Property Name="DescripcionSta" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Paquete" Relationship="REEMBOLSOModel.FK_Paquete_StatusPaq" FromRole="StatusPaq" ToRole="Paquete" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="ClaveSuc" />
+          </Key>
+          <Property Name="ClaveSuc" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DescripcionSuc" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Reembolso" Relationship="REEMBOLSOModel.FK_Reembolso_Sucursal" FromRole="Sucursal" ToRole="Reembolso" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Rol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Paquete" Relationship="REEMBOLSOModel.FK_Paquete_Usuario" FromRole="Usuario" ToRole="Paquete" />
+          <NavigationProperty Name="Reembolso" Relationship="REEMBOLSOModel.FK_Reembolso_Usuario" FromRole="Usuario" ToRole="Reembolso" />
+          <NavigationProperty Name="Rol1" Relationship="REEMBOLSOModel.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Usuario_Modulo" Relationship="REEMBOLSOModel.FK_Usuario_Modulo_Usuario" FromRole="Usuario" ToRole="Usuario_Modulo" />
+        </EntityType>
+        <EntityType Name="Usuario_Modulo">
+          <Key>
+            <PropertyRef Name="ClaveUM" />
+          </Key>
+          <Property Name="ClaveUM" Type="Int32" Nullable="false" />
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="ClaveMod" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="REEMBOLSOModel.FK_Usuario_Modulo_Modulo" FromRole="Usuario_Modulo" ToRole="Modulo" />
+          <NavigationProperty Name="Usuario" Relationship="REEMBOLSOModel.FK_Usuario_Modulo_Usuario" FromRole="Usuario_Modulo" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Paquete_Acreedor">
+          <End Role="Acreedor" Type="REEMBOLSOModel.Acreedor" Multiplicity="1" />
+          <End Role="Paquete" Type="REEMBOLSOModel.Paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acreedor">
+              <PropertyRef Name="ClaveAcre" />
+            </Principal>
+            <Dependent Role="Paquete">
+              <PropertyRef Name="ClaveAcre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Articulo">
+          <End Role="Articulo" Type="REEMBOLSOModel.Articulo" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articulo">
+              <PropertyRef Name="ClaveArt" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveArt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Modulo_Modulo">
+          <End Role="Modulo" Type="REEMBOLSOModel.Modulo" Multiplicity="1" />
+          <End Role="Usuario_Modulo" Type="REEMBOLSOModel.Usuario_Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="ClaveMod" />
+            </Principal>
+            <Dependent Role="Usuario_Modulo">
+              <PropertyRef Name="ClaveMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paquete_StatusPaq">
+          <End Role="StatusPaq" Type="REEMBOLSOModel.StatusPaq" Multiplicity="1" />
+          <End Role="Paquete" Type="REEMBOLSOModel.Paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPaq">
+              <PropertyRef Name="ID_StatusPaq" />
+            </Principal>
+            <Dependent Role="Paquete">
+              <PropertyRef Name="ID_StatusPaq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paquete_Usuario">
+          <End Role="Usuario" Type="REEMBOLSOModel.Usuario" Multiplicity="1" />
+          <End Role="Paquete" Type="REEMBOLSOModel.Paquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Paquete">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Paquete">
+          <End Role="Paquete" Type="REEMBOLSOModel.Paquete" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paquete">
+              <PropertyRef Name="FolioPaq" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="FolioPaq" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Proveedor">
+          <End Role="Proveedor" Type="REEMBOLSOModel.Proveedor" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="ClaveProv" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveProv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Segmento">
+          <End Role="Segmento" Type="REEMBOLSOModel.Segmento" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Segmento">
+              <PropertyRef Name="ClaveSeg" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveSeg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Sucursal">
+          <End Role="Sucursal" Type="REEMBOLSOModel.Sucursal" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ClaveSuc" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ClaveSuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reembolso_Usuario">
+          <End Role="Usuario" Type="REEMBOLSOModel.Usuario" Multiplicity="1" />
+          <End Role="Reembolso" Type="REEMBOLSOModel.Reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Reembolso">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="REEMBOLSOModel.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="REEMBOLSOModel.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Modulo_Usuario">
+          <End Role="Usuario" Type="REEMBOLSOModel.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Modulo" Type="REEMBOLSOModel.Usuario_Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario_Modulo">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="REEMBOLSOModelStoreContainer" CdmEntityContainer="REEMBOLSOEntities">
+          <EntitySetMapping Name="Acreedor">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Acreedor">
+              <MappingFragment StoreEntitySet="Acreedor">
+                <ScalarProperty Name="ClaveAcre" ColumnName="ClaveAcre" />
+                <ScalarProperty Name="DescripcionAcre" ColumnName="DescripcionAcre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articulo">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Articulo">
+              <MappingFragment StoreEntitySet="Articulo">
+                <ScalarProperty Name="ClaveArt" ColumnName="ClaveArt" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="ClaveMod" ColumnName="ClaveMod" />
+                <ScalarProperty Name="DrecipcionMod" ColumnName="DrecipcionMod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paquete">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Paquete">
+              <MappingFragment StoreEntitySet="Paquete">
+                <ScalarProperty Name="FolioPaq" ColumnName="FolioPaq" />
+                <ScalarProperty Name="ClaveAcre" ColumnName="ClaveAcre" />
+                <ScalarProperty Name="ImportePaq" ColumnName="ImportePaq" />
+                <ScalarProperty Name="CreacionPaq" ColumnName="CreacionPaq" />
+                <ScalarProperty Name="ID_StatusPaq" ColumnName="ID_StatusPaq" />
+                <ScalarProperty Name="CierrePaq" ColumnName="CierrePaq" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="PresupuestoPaq" ColumnName="PresupuestoPaq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="ClaveProv" ColumnName="ClaveProv" />
+                <ScalarProperty Name="DescripcionProv" ColumnName="DescripcionProv" />
+                <ScalarProperty Name="RFC_Prov" ColumnName="RFC_Prov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reembolso">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Reembolso">
+              <MappingFragment StoreEntitySet="Reembolso">
+                <ScalarProperty Name="ID_Reem" ColumnName="ID_Reem" />
+                <ScalarProperty Name="FolioPaq" ColumnName="FolioPaq" />
+                <ScalarProperty Name="ClaveArt" ColumnName="ClaveArt" />
+                <ScalarProperty Name="ClaveProv" ColumnName="ClaveProv" />
+                <ScalarProperty Name="DescripcionReem" ColumnName="DescripcionReem" />
+                <ScalarProperty Name="ImporteRem" ColumnName="ImporteRem" />
+                <ScalarProperty Name="IVA_Reem" ColumnName="IVA_Reem" />
+                <ScalarProperty Name="TotalReem" ColumnName="TotalReem" />
+                <ScalarProperty Name="FechaReem" ColumnName="FechaReem" />
+                <ScalarProperty Name="ClaveSuc" ColumnName="ClaveSuc" />
+                <ScalarProperty Name="ClaveSeg" ColumnName="ClaveSeg" />
+                <ScalarProperty Name="CreacionReem" ColumnName="CreacionReem" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segmento">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Segmento">
+              <MappingFragment StoreEntitySet="Segmento">
+                <ScalarProperty Name="ClaveSeg" ColumnName="ClaveSeg" />
+                <ScalarProperty Name="DescripcionSeg" ColumnName="DescripcionSeg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusPaq">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.StatusPaq">
+              <MappingFragment StoreEntitySet="StatusPaq">
+                <ScalarProperty Name="ID_StatusPaq" ColumnName="ID_StatusPaq" />
+                <ScalarProperty Name="DescripcionSta" ColumnName="DescripcionSta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="ClaveSuc" ColumnName="ClaveSuc" />
+                <ScalarProperty Name="DescripcionSuc" ColumnName="DescripcionSuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario_Modulo">
+            <EntityTypeMapping TypeName="REEMBOLSOModel.Usuario_Modulo">
+              <MappingFragment StoreEntitySet="Usuario_Modulo">
+                <ScalarProperty Name="ClaveUM" ColumnName="ClaveUM" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="ClaveMod" ColumnName="ClaveMod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
