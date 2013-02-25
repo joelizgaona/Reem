@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="REEMBOLSOModelStoreContainer" CdmEntityContainer="REEMBOLSOEntities">
+    <EntitySetMapping Name="Acreedor">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Acreedor">
+        <MappingFragment StoreEntitySet="Acreedor">
+          <ScalarProperty Name="ClaveAcre" ColumnName="ClaveAcre" />
+          <ScalarProperty Name="DescripcionAcre" ColumnName="DescripcionAcre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articulo">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Articulo">
+        <MappingFragment StoreEntitySet="Articulo">
+          <ScalarProperty Name="ClaveArt" ColumnName="ClaveArt" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modulo">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Modulo">
+        <MappingFragment StoreEntitySet="Modulo">
+          <ScalarProperty Name="ClaveMod" ColumnName="ClaveMod" />
+          <ScalarProperty Name="DrecipcionMod" ColumnName="DrecipcionMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paquete">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Paquete">
+        <MappingFragment StoreEntitySet="Paquete">
+          <ScalarProperty Name="FolioPaq" ColumnName="FolioPaq" />
+          <ScalarProperty Name="ClaveAcre" ColumnName="ClaveAcre" />
+          <ScalarProperty Name="ImportePaq" ColumnName="ImportePaq" />
+          <ScalarProperty Name="CreacionPaq" ColumnName="CreacionPaq" />
+          <ScalarProperty Name="ID_StatusPaq" ColumnName="ID_StatusPaq" />
+          <ScalarProperty Name="CierrePaq" ColumnName="CierrePaq" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="PresupuestoPaq" ColumnName="PresupuestoPaq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="ClaveProv" ColumnName="ClaveProv" />
+          <ScalarProperty Name="DescripcionProv" ColumnName="DescripcionProv" />
+          <ScalarProperty Name="RFC_Prov" ColumnName="RFC_Prov" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reembolso">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Reembolso">
+        <MappingFragment StoreEntitySet="Reembolso">
+          <ScalarProperty Name="ID_Reem" ColumnName="ID_Reem" />
+          <ScalarProperty Name="FolioPaq" ColumnName="FolioPaq" />
+          <ScalarProperty Name="ClaveArt" ColumnName="ClaveArt" />
+          <ScalarProperty Name="ClaveProv" ColumnName="ClaveProv" />
+          <ScalarProperty Name="DescripcionReem" ColumnName="DescripcionReem" />
+          <ScalarProperty Name="ImporteRem" ColumnName="ImporteRem" />
+          <ScalarProperty Name="IVA_Reem" ColumnName="IVA_Reem" />
+          <ScalarProperty Name="TotalReem" ColumnName="TotalReem" />
+          <ScalarProperty Name="FechaReem" ColumnName="FechaReem" />
+          <ScalarProperty Name="ClaveSuc" ColumnName="ClaveSuc" />
+          <ScalarProperty Name="ClaveSeg" ColumnName="ClaveSeg" />
+          <ScalarProperty Name="CreacionReem" ColumnName="CreacionReem" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Segmento">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Segmento">
+        <MappingFragment StoreEntitySet="Segmento">
+          <ScalarProperty Name="ClaveSeg" ColumnName="ClaveSeg" />
+          <ScalarProperty Name="DescripcionSeg" ColumnName="DescripcionSeg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusPaq">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.StatusPaq">
+        <MappingFragment StoreEntitySet="StatusPaq">
+          <ScalarProperty Name="ID_StatusPaq" ColumnName="ID_StatusPaq" />
+          <ScalarProperty Name="DescripcionSta" ColumnName="DescripcionSta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursal">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="ClaveSuc" ColumnName="ClaveSuc" />
+          <ScalarProperty Name="DescripcionSuc" ColumnName="DescripcionSuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario_Modulo">
+      <EntityTypeMapping TypeName="REEMBOLSOModel.Usuario_Modulo">
+        <MappingFragment StoreEntitySet="Usuario_Modulo">
+          <ScalarProperty Name="ClaveUM" ColumnName="ClaveUM" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="ClaveMod" ColumnName="ClaveMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
